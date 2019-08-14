@@ -6,8 +6,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "start:dev": "tsc --watch",
-    "start": "tsc --watch"
+    "start:dev": "tsc -p tsconfig.build.json --watch",
+    "start": "tsc -p tsconfig.build.json --watch"
   },
   "dependencies": {
     "lodash": "^4.17.11",
