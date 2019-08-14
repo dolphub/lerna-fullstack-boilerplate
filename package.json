@@ -1,0 +1,25 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "build:watch": "lerna run build:watch",
+    "clean": "rimraf packages/**/dist",
+    "diff": "lerna diff",
+    "start:dev": "lerna run --parallel start:dev",
+    "new:release": "lerna version --conventional-commits",
+    "new:rc-patch": "lerna version prepatch --preid rc --conventional-commits",
+    "new:rc-minor": "lerna version preminor --preid rc --conventional-commits",
+    "new:rc-major": "lerna version premajor --preid rc --conventional-commits",
+    "new:rc-prerelease": "lerna version prerelease --preid rc --conventional-commits"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^12.7.1",
+    "lerna": "^3.16.4",
+    "rimraf": "^2.7.0"
+  }
+}
