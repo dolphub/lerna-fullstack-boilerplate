@@ -2,50 +2,6 @@
  * Expressive Error Handling Typescript
  */
 
-class Result<T> {
-  public isSuccess: boolean;
-  public isFailure: boolean;
-  public error: T | string;
-  public _value: T;
-
-  public constructor(isSuccess: boolean, error?: T | string, value?: T) {
-    if (isSuccess && error) {
-      throw new Error(
-        'InvalidOperation: A result cannot be successful and contain an error',
-      );
-    }
-
-    if (!isSuccess && !error) {
-      throw new Error(
-        'InvalidOperation: A failing result needs to contain an error message',
-      );
-    }
-
-    this.isSuccess = isSuccess;
-    this.isFailure = !isSuccess;
-    this.error = error;
-    this._value = value;
-
-    Object.freeze(this);
-  }
-
-  public getValue(): T {
-    if (!this.isSuccess) {
-      return this.error as T;
-    }
-
-    return this._value;
-  }
-
-  public static ok<U>(value?: U): Result<U> {
-    return new Result<U>(true, null, value);
-  }
-
-  public static fail<U>(error: any): Result<U> {
-    return new Result<U>(false, error);
-  }
-}
-
 type Either<L, A> = Left<L, A> | Right<L, A>;
 
 class Left<L, A> {
@@ -96,17 +52,19 @@ export const right = <L, A>(a: A): Either<L, A> => {
   return new Right<L, A>(a);
 };
 
-const negativeError = () => ({
+type GenericError = { message: string };
+const negativeError: () => GenericError = () => ({
   message: 'All numbers should be strictly positive',
 });
 
-type GenericError = { message: string };
+type Response = Either<GenericError, number>;
 
-const sumCount = (...counts: number[]): Either<GenericError, number> => {
+const sumCount = (...counts: number[]): Response => {
   if (counts.some(x => x < 0)) {
     return left(negativeError());
   }
-  return right(counts.reduce((prev, curr) => curr + prev, 0));
+  const sum = counts.reduce((prev, curr) => curr + prev, 0);
+  return right(sum);
 };
 
 const computeSomething = (data: number) => {
@@ -115,11 +73,14 @@ const computeSomething = (data: number) => {
 
 /*** EXAMPLE *****/
 (() => {
-  const data = sumCount(1, 2, 3).applyOnRight(computeSomething);
-  if (data.isLeft()) {
-    const { message } = data.value;
-    message;
-  }
-  data.isRight(); /* ? */
+  const doApplySum = () => {
+    const data = sumCount(1, 2, 3).applyOnRight(computeSomething);
+    if (data.isLeft()) {
+      const { message } = data.value;
+      message;
+    }
+    return data.applyOnRight(computeSomething);
+  };
+  const data = doApplySum();
   data;
 })();
