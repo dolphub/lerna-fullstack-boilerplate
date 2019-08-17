@@ -1,13 +1,14 @@
 {
   "name": "@dolphub/common",
   "private": true,
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "start:dev": "tsc -p tsconfig.build.json --watch",
-    "start": "tsc -p tsconfig.build.json --watch"
+    "start:dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
+    "start": "tsc -p tsconfig.json --watch"
   },
   "dependencies": {
     "lodash": "^4.17.11",

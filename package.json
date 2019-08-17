@@ -5,7 +5,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "build:watch": "lerna run build:watch",
-    "clean": "rimraf packages/**/dist",
+    "clean": "rimraf packages/**/lib",
     "diff": "lerna diff",
     "start:dev": "lerna run --parallel start:dev",
     "new:release": "lerna version --conventional-commits",
