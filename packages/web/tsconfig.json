@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.settings.json",
   "compilerOptions": {
     "outDir": "build/lib",
     "module": "esnext",
@@ -11,9 +12,6 @@
     "moduleResolution": "node",
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": false,
-    "noImplicitThis": false,
-    "noImplicitAny": false,
     "esModuleInterop": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
