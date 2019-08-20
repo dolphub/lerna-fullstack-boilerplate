@@ -5,11 +5,15 @@
     "rootDir": "src",
     "target": "es6",
     "module": "commonjs",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
+    "declarationDir": "lib",
     "sourceMap": true,
     "strict": true,
     "composite": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./"
   }
 }

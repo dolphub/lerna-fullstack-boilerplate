@@ -1,8 +1,0 @@
-{
-  "files": [],
-  "references": [
-    { "path": "common" },
-    { "path": "common-components" },
-    { "path": "web" }
-  ]
-}

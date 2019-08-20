@@ -21,7 +21,6 @@
       "*": ["./node_modules/@types/*", "*"]
     }
   },
-  "references": [{ "path": "../common" }, { "path": "../common-components" }],
   "exclude": [
     "node_modules",
     "build",

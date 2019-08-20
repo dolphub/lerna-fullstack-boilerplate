@@ -40,7 +40,7 @@
     "test:watch": "jest --watch",
     "clean": "rimraf lib",
     "prebuild": "yarn clean",
-    "build": "tsc",
+    "build": "tsc -b",
     "start:dev": "tsc -w --preserveWatchOutput",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
