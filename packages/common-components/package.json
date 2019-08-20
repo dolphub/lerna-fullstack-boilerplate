@@ -38,8 +38,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "clean-lib": "rimraf lib",
-    "prebuild": "yarn clean-lib",
+    "clean": "rimraf lib",
+    "prebuild": "yarn clean",
     "build": "tsc",
     "start:dev": "tsc -w --preserveWatchOutput",
     "storybook": "start-storybook -p 6006",
