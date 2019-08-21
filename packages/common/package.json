@@ -8,10 +8,11 @@
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "start:dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
+    "start:lib:dev": "yarn start:dev",
     "start": "tsc -p tsconfig.json -w",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "yarn clean",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -b"
   },
   "dependencies": {
     "lodash": "^4.17.11",

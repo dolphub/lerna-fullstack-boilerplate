@@ -4,6 +4,17 @@
   "private": true,
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "yarn clean",
+    "build": "tsc -b",
+    "start:dev": "tsc -w --preserveWatchOutput",
+    "start:lib:dev": "yarn start:dev",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "peerDependencies": {
     "react": "^16.x",
     "react-dom": "^16.x"
@@ -35,16 +46,6 @@
   "files": [
     "lib"
   ],
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "clean": "rimraf lib",
-    "prebuild": "yarn clean",
-    "build": "tsc",
-    "start:dev": "tsc -w --preserveWatchOutput",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -61,6 +62,7 @@
     ]
   },
   "dependencies": {
+    "@dolphub/common": "^0.1.0",
     "@types/react": "^16.9.2"
   }
 }

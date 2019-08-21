@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
+import { exampleService, BookDto } from '@dolphub/common';
 
 import { AwesomeComponent } from '@dolphub/common-components';
 
-import { exampleService } from '@dolphub/common';
-
 const App: React.FC = () => {
-  // const data = exampleService(['hello', 'world']);
-  const data = exampleService(['hello', 'world']);
+  const data = exampleService(['hello world', 'noob']);
+  const bookData: BookDto[] = [];
 
   const onComponentClick = (val, index) => () => {
     alert(`${val}: ${index}`);
