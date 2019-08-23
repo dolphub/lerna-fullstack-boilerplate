@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "start:dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
-    "start:lib:dev": "yarn start:dev",
+    "start:lib:dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
     "start": "tsc -p tsconfig.json -w",
     "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "yarn clean",
