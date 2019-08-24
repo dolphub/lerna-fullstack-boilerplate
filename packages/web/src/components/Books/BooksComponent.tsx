@@ -4,6 +4,14 @@ import { Book } from './Book';
 
 import BookService from '../../services/books';
 
+import styled from 'styled-components';
+
+const BooksContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+`;
+
 export interface BooksComponentProps {
   // data: BookDto[];
 }
@@ -20,15 +28,27 @@ class BooksComponent extends Component<
     bookData: [],
   };
   componentDidMount = async () => {
-    const data = BookService.getBooks();
+    const bookData = await BookService.getBooks();
+    console.log(bookData);
+    this.setState({ bookData });
   };
+
+  renderBooks = () => {
+    const { bookData } = this.state;
+
+    if (!bookData.length) {
+      return null;
+    }
+
+    return bookData.map((book, i) => <Book key={i} data={book} />);
+  };
+
   render() {
-    return (
-      <Fragment>
-        <div>{JSON.stringify(this.state.bookData)}</div>
-        <Book />
-      </Fragment>
-    );
+    const { bookData } = this.state;
+    if (!bookData.length) {
+      return null;
+    }
+    return <BooksContainer>{this.renderBooks()}</BooksContainer>;
   }
 }
 

@@ -7,11 +7,17 @@ const baseUrl = 'http://localhost:3001';
 
 class BookService {
   async getBooks(): Promise<BookDto[]> {
-    const { data, status } = await axios.get(`{baseUrl}/books`);
-    if (status < 200 || status > 399) {
-      throw new Error(data);
+    try {
+      const baseUrl = 'http://localhost:3001/books';
+      const { data, status } = await axios.get(baseUrl);
+      if (status < 200 || status > 399) {
+        throw new Error(data);
+      }
+      return data;
+    } catch (e) {
+      console.warn('error', e);
+      throw e;
     }
-    return data;
   }
 }
 
