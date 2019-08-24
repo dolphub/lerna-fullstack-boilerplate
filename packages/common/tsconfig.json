@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
+    "types": [],
     "declarationMap": true,
     "declarationDir": "lib",
     "sourceMap": true,
@@ -19,5 +20,7 @@
     "paths": {
       "*": ["./node_modules/@types/*", "*"]
     }
-  }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "lib"]
 }

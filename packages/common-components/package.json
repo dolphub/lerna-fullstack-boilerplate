@@ -9,9 +9,8 @@
     "test:watch": "jest --watch",
     "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "yarn clean",
-    "build": "tsc -b",
-    "start:dev": "tsc -w --preserveWatchOutput",
-    "start:lib:dev": "yarn start:dev",
+    "build": "tsc -p tsconfig.json",
+    "start:lib:dev": "tsc -p tsconfig.json -w --preserveWatchOutput",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
