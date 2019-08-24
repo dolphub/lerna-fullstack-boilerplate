@@ -12,7 +12,7 @@
     "start": "tsc -p tsconfig.json -w",
     "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "yarn clean",
-    "build": "tsc -b"
+    "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "lodash": "^4.17.11",

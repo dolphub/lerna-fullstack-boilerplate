@@ -7,6 +7,8 @@ yarn-error.log*
 tsbuildinfo
 lib
 
+*.tsbuildinfo
+
 # Runtime data
 pids
 *.pid
